@@ -332,7 +332,7 @@ right: -3%;
   position: relative;
 }
 .line-break {
-  height: 12px;
+  height: 8px;
   background-color: #f7f7f7;
 }
 .deal {
@@ -991,6 +991,7 @@ right: -3%;
   display: flex;
   justify-content: space-between;
   line-height: 48px;
+  padding: 0px 12px;
 }
 
 .cart--right__km i {
