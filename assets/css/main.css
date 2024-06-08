@@ -207,6 +207,7 @@
 }
 .header__advertisement {
   margin-top: 20px;
+  /* position: absolute; */
 }
 .slide-show {
   width: 800px;
@@ -215,10 +216,45 @@
   overflow: hidden;
   margin-right: 16px;
 }
+.slide-show:hover .slideshow__btn_next{
+  display: block;
+}
 .list-img {
   border-radius: 12px;
   display: flex;
-  transition: 0.5s;
+  transition: 0.5s linear ;
+}
+.slideshow__btn{
+  /* position: absolute; */
+  transform: rotateY(50px);
+  border-radius: 99999px;
+  width: 40px;
+  height: 40px;
+  background-color: #fff;
+  border: none;
+  box-shadow: 0px 0px 5px 0px #ddd;
+  font-size: 1.4rem;
+  font-weight: 500;
+  z-index: 10;
+  opacity: 0.8;
+  cursor:pointer;
+}
+.slideshow__btn_next{
+  position: absolute;
+  right: 0px;
+  top: 43%;
+}
+.slideshow__btn_prevent{
+  position: absolute;
+  left: 0px;
+  top: 43%;
+}
+.slideshow__btn_prevent i{
+  color: #2b2b2b;
+}
+.slideshow__btn_next i{
+  color: #2b2b2b;
+
 }
 .advertisement-img {
   width: 384px;
@@ -694,6 +730,11 @@ right: -3%;
   padding-top: 1px;
   display: flex;
 }
+.follow-dowm-pay{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 50px;
+}
 .about-pharmacity {
   font-size: 1.4rem;
   color: #2b2b2b;
@@ -764,8 +805,10 @@ right: -3%;
 }
 .cart-content {
   padding-top: 2.4rem;
-  display: flex;
+  display: grid;
   gap: 20px;
+  grid-template-columns: 864px 320px;
+  grid-template-rows:  808px 100px ;
 }
 .cart--left__info {
   background-color: #fff;
@@ -994,10 +1037,34 @@ justify-content: space-between;
   font-size: 14px;
   text-align: center;
   justify-content: space-between;
+}
 
-
-
-
-
-
+.tong-tien{
+  display: flex;
+  font-size: 18px;
+  justify-content: space-between;
+  align-items: center;
+}
+.tong-tien h3{
+  color: #f22222;
+  font-weight: 700;
+  font-size: 2.4rem;
+}
+.btn__buy-product{
+  background-color: #0072bc;
+  text-align: center;
+  padding: 10px 16px;
+  font-size: 1.6rem;
+  color: #fff;
+  border-radius: 8px;
+}
+.product__gift{
+  width: 100%;
+  /* background-color: red; */
+  background-color: #fff;
+  padding: 10px;
+}
+.item-info__desc-full{
+  display: block;
+  width: 400px;
 }
