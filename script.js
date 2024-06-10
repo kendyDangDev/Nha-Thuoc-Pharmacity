@@ -14,6 +14,22 @@
 //     listImages.style.transform = "translateX(${width * -1 * current}px)";
 //   }
 // }, 1000);
+var btnCategory = document.querySelector('.header-category__btn');
+var categoryDisplay = document.querySelector(".category__main-container")
+var arrow = document.querySelector(".rotate_ar")
+
+btnCategory.addEventListener('click', function() {
+  if (categoryDisplay.style.opacity == 0) {
+    categoryDisplay.style.opacity = 1;
+    categoryDisplay.style.visibility = "visible";
+    arrow.style.transform = "rotate(180deg)";
+  } else {
+    categoryDisplay.style.opacity = 0;
+    categoryDisplay.style.visibility = "hidden";
+    arrow.style.transform = "rotate(0deg)";
+  }
+});
+
 
 var carousel = document.querySelector(".list-img");
 var listimg = document.querySelectorAll(".list-img img");
