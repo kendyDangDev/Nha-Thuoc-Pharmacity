@@ -90,16 +90,23 @@
   height: 40px;
   border: 0;
 }
+
 .btn_search--icon span i {
   width: 24px;
   height: 20px;
   font-size: 1.8rem;
   line-height: 2rem;
 }
-.btn_search--text {
+.btn_search--text input {
   /* font-size: 1.4rem; */
-  color: #787878;
+  color: black;
+  border: none;
+  outline: none;
+  font-weight: 500;
+  font-size: 1.4rem;
+  width: 500px;
 }
+
 .header-search__history {
   justify-content: space-between;
   color: #fff;
@@ -232,12 +239,12 @@
 .nav_category:hover {
   overflow: auto;
 }
-::-webkit-scrollbar-thumb {
+/* ::-webkit-scrollbar-thumb {
   background-color: #e2e8f0;
 }
 ::-webkit-scrollbar-thumb:hover {
   background-color: #e2e8f0;
-}
+} */
 
 .cate_item {
   display: flex;
@@ -1130,7 +1137,7 @@ right: -3%;
   font-weight: 500;
   margin-right: 14px;
   color: #0072bc;
-  cursor:pointer;
+  cursor: pointer;
 }
 .cart--right__total-price {
   margin-top: 14px;
