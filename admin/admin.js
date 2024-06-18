@@ -11,6 +11,9 @@ document.addEventListener("DOMContentLoaded", function () {
   let categories = JSON.parse(localStorage.getItem("categories")) || [];
   let products = JSON.parse(localStorage.getItem("products")) || [];
 
+  let isEditing = false;
+  let editingIndex = null;
+
   btnCategory.addEventListener("click", () => {
     content.innerHTML = `
     <h1>Category Page</h1>
@@ -20,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
       <p>Tất cả danh mục <b id="all__category"></b></p>
             <div class="search__bar" id="btn__search-category">
                 <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" placeholder="Tên thuốc, thực phẩm chức năng" />
+                <input type="text" id="categorySearchInput" placeholder="Tên thuốc, thực phẩm chức năng" />
             </div>
         </div>
         <button class="btn__add" id="btn__add-category">
@@ -29,27 +32,34 @@ document.addEventListener("DOMContentLoaded", function () {
         </button>
     </div>
     <div class="table-container">
-  <table id="table__content" class="table__content table__contentcate">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Danh Mục</th>
-        <th>Mô tả</th>
-        <th>Thao tác</th>
-      </tr>
-    </thead>
-    <tbody id="categoryTableBody">
-      <!-- Dữ liệu danh mục sẽ được render tại đây -->
-    </tbody>
-  </table>
-</div>
+      <table id="table__content" class="table__content table__contentcate">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Danh Mục</th>
+            <th>Mô tả</th>
+            <th>Thao tác</th>
+          </tr>
+        </thead>
+        <tbody id="categoryTableBody">
+          <!-- Dữ liệu danh mục sẽ được render tại đây -->
+        </tbody>
+      </table>
+    </div>
     `;
     renderCategories();
     document
       .getElementById("btn__add-category")
       .addEventListener("click", () => {
         categoryModal.style.display = "block";
+        isEditing = false;
+        editingIndex = null;
+        document.getElementById("categoryName").value = "";
+        document.getElementById("categoryDescription").value = "";
       });
+    document
+      .getElementById("categorySearchInput")
+      .addEventListener("input", filterCategories);
   });
 
   btnProduct.addEventListener("click", () => {
@@ -58,10 +68,10 @@ document.addEventListener("DOMContentLoaded", function () {
   <h3>Product Page</h3>
   <div class="header">
       <div class="header__left">
-   <p>Tất cả sản phẩm <b id="all__product"></b></p>
+          <p>Tất cả sản phẩm <b id="all__product"></b></p>
           <div class="search__bar" id="btn__search-product">
               <i class="fa-solid fa-magnifying-glass"></i>
-              <input type="text" placeholder="Tên thuốc, thực phẩm chức năng" />
+              <input type="text" id="productSearchInput" placeholder="Tên thuốc, thực phẩm chức năng" />
           </div>
       </div>
       <button class="btn__add" id="btn__add-product">
@@ -82,7 +92,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 <th>Thao tác</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="productTableBody">
             <!-- Dữ liệu sản phẩm sẽ được render tại đây -->
         </tbody>
     </table>
@@ -93,8 +103,20 @@ document.addEventListener("DOMContentLoaded", function () {
       .getElementById("btn__add-product")
       .addEventListener("click", () => {
         populateCategoryOptions();
+        document.getElementById("productImagePreview").style.display = "none"; // Ẩn preview ảnh khi thêm mới
         productModal.style.display = "block";
+        isEditing = false;
+        editingIndex = null;
+        document.getElementById("productName").value = "";
+        document.getElementById("productPrice").value = "";
+        document.getElementById("productBrand").value = "";
+        document.getElementById("productCategory").value = "";
+        document.getElementById("productImage").value = "";
+        document.getElementById("productImagePreview").src = "";
       });
+    document
+      .getElementById("productSearchInput")
+      .addEventListener("input", filterProducts);
   });
 
   closeCategoryModal.addEventListener("click", () => {
@@ -118,9 +140,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const allCategory = document.getElementById("all__category");
     allCategory.innerHTML = `(${categories.length})`;
 
-    const categoryTableBody = document
-      .getElementById("table__content")
-      .querySelector("tbody");
+    const categoryTableBody = document.getElementById("categoryTableBody");
     categoryTableBody.innerHTML = "";
     categories.forEach((category, index) => {
       const tr = document.createElement("tr");
@@ -141,9 +161,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const allProduct = document.getElementById("all__product");
     allProduct.innerHTML = `(${products.length})`;
 
-    const productTableBody = document
-      .getElementById("table__content")
-      .querySelector("tbody");
+    const productTableBody = document.getElementById("productTableBody");
     productTableBody.innerHTML = "";
 
     products.forEach((product, index) => {
@@ -173,7 +191,17 @@ document.addEventListener("DOMContentLoaded", function () {
       .value.trim();
     if (categoryName === "" || categoryDescription === "") return;
 
-    categories.push({ name: categoryName, description: categoryDescription });
+    if (isEditing) {
+      categories[editingIndex] = {
+        name: categoryName,
+        description: categoryDescription,
+      };
+      isEditing = false;
+      editingIndex = null;
+    } else {
+      categories.push({ name: categoryName, description: categoryDescription });
+    }
+
     localStorage.setItem("categories", JSON.stringify(categories));
     renderCategories();
     categoryModal.style.display = "none";
@@ -186,6 +214,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const productCategory = document
       .getElementById("productCategory")
       .value.trim();
+    const productImage = document.getElementById("productImage").files[0];
+
     if (
       productName === "" ||
       productPrice === "" ||
@@ -194,16 +224,52 @@ document.addEventListener("DOMContentLoaded", function () {
     )
       return;
 
-    products.push({
-      name: productName,
-      price: productPrice,
-      brand: productBrand,
-      category: productCategory,
-      image: "path/to/default/image",
-    });
-    localStorage.setItem("products", JSON.stringify(products));
-    renderProducts();
-    productModal.style.display = "none";
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      const productData = {
+        name: productName,
+        price: productPrice,
+        brand: productBrand,
+        category: productCategory,
+        image: e.target.result,
+      };
+
+      if (isEditing) {
+        products[editingIndex] = productData;
+        isEditing = false;
+        editingIndex = null;
+      } else {
+        products.push(productData);
+      }
+
+      localStorage.setItem("products", JSON.stringify(products));
+      renderProducts();
+      productModal.style.display = "none";
+    };
+
+    if (productImage) {
+      reader.readAsDataURL(productImage);
+    } else {
+      const productData = {
+        name: productName,
+        price: productPrice,
+        brand: productBrand,
+        category: productCategory,
+        image: products[editingIndex]?.image || "path/to/default/image",
+      };
+
+      if (isEditing) {
+        products[editingIndex] = productData;
+        isEditing = false;
+        editingIndex = null;
+      } else {
+        products.push(productData);
+      }
+
+      localStorage.setItem("products", JSON.stringify(products));
+      renderProducts();
+      productModal.style.display = "none";
+    }
   }
 
   function populateCategoryOptions() {
@@ -223,20 +289,34 @@ document.addEventListener("DOMContentLoaded", function () {
     .addEventListener("click", saveCategory);
   document.getElementById("saveProduct").addEventListener("click", saveProduct);
 
+  document
+    .getElementById("productImage")
+    .addEventListener("change", function (event) {
+      const productImagePreview = document.getElementById(
+        "productImagePreview"
+      );
+      const productImage = event.target.files[0];
+
+      if (productImage) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          productImagePreview.src = e.target.result;
+          productImagePreview.style.display = "block";
+        };
+        reader.readAsDataURL(productImage);
+      } else {
+        productImagePreview.src = "";
+        productImagePreview.style.display = "none";
+      }
+    });
+
   window.editCategory = function (index) {
     const category = categories[index];
     document.getElementById("categoryName").value = category.name;
     document.getElementById("categoryDescription").value = category.description;
     categoryModal.style.display = "block";
-    document.getElementById("saveCategory").onclick = function () {
-      category.name = document.getElementById("categoryName").value.trim();
-      category.description = document
-        .getElementById("categoryDescription")
-        .value.trim();
-      localStorage.setItem("categories", JSON.stringify(categories));
-      renderCategories();
-      categoryModal.style.display = "none";
-    };
+    isEditing = true;
+    editingIndex = index;
   };
 
   window.deleteCategory = function (index) {
@@ -254,18 +334,11 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("productBrand").value = product.brand;
     populateCategoryOptions();
     document.getElementById("productCategory").value = product.category;
+    document.getElementById("productImagePreview").src = product.image;
+    document.getElementById("productImagePreview").style.display = "block";
     productModal.style.display = "block";
-    document.getElementById("saveProduct").onclick = function () {
-      product.name = document.getElementById("productName").value.trim();
-      product.price = document.getElementById("productPrice").value.trim();
-      product.brand = document.getElementById("productBrand").value.trim();
-      product.category = document
-        .getElementById("productCategory")
-        .value.trim();
-      localStorage.setItem("products", JSON.stringify(products));
-      renderProducts();
-      productModal.style.display = "none";
-    };
+    isEditing = true;
+    editingIndex = index;
   };
 
   window.deleteProduct = function (index) {
@@ -275,4 +348,63 @@ document.addEventListener("DOMContentLoaded", function () {
       renderProducts();
     }
   };
+
+  function filterCategories() {
+    const searchValue = document
+      .getElementById("categorySearchInput")
+      .value.toLowerCase();
+    const filteredCategories = categories.filter((category) =>
+      category.name.toLowerCase().includes(searchValue)
+    );
+    renderFilteredCategories(filteredCategories);
+  }
+
+  function renderFilteredCategories(filteredCategories) {
+    const categoryTableBody = document.getElementById("categoryTableBody");
+    categoryTableBody.innerHTML = "";
+    filteredCategories.forEach((category, index) => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${index + 1}</td>
+        <td>${category.name}</td>
+        <td>${category.description}</td>
+        <td>
+          <button onclick="editCategory(${index})"><i class="fa-solid fa-pen-to-square"></i></button>
+          <button onclick="deleteCategory(${index})"><i class="fa-solid fa-trash-can"></i></button>
+        </td>
+      `;
+      categoryTableBody.appendChild(tr);
+    });
+  }
+
+  function filterProducts() {
+    const searchValue = document
+      .getElementById("productSearchInput")
+      .value.toLowerCase();
+    const filteredProducts = products.filter((product) =>
+      product.name.toLowerCase().includes(searchValue)
+    );
+    renderFilteredProducts(filteredProducts);
+  }
+
+  function renderFilteredProducts(filteredProducts) {
+    const productTableBody = document.getElementById("productTableBody");
+    productTableBody.innerHTML = "";
+    filteredProducts.forEach((product, index) => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${index + 1}</td>
+        <td><img src="${product.image}" alt="${product.name}" width="50"/></td>
+        <td>${product.name}</td>
+        <td>${product.price}</td>
+        <td>${product.brand}</td>
+        <td>${product.category}</td>
+        <td>
+          <button onclick="editProduct(${index})"><i class="fa-solid fa-pen-to-square"></i></button>
+          <button onclick="deleteProduct(${index})"><i class="fa-solid fa-trash-can"></i></button>
+        </td>
+      `;
+      productTableBody.appendChild(tr);
+    });
+  }
 });

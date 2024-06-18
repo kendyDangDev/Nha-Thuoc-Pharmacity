@@ -58,7 +58,6 @@ body {
 .content h3 {
   color: #0080ffb9;
 }
-/* admin.css */
 
 .header {
   display: flex;
@@ -72,8 +71,8 @@ body {
   align-items: center;
   gap: 30px;
 }
-.header__left p{
-  border-bottom: 2px solid #0070e0;
+.header__left p {
+  border-bottom: 3px solid #0080ffb9;
   font-size: 1.6rem;
 }
 
@@ -87,7 +86,6 @@ body {
   background-color: #fff;
   padding: 10px 14px;
 }
-
 
 .search__bar input {
   margin-left: 10px;
@@ -104,7 +102,7 @@ body {
   cursor: pointer;
   border-radius: 8px;
 }
-.btn__add:hover{
+.btn__add:hover {
   background-color: #005db9;
 }
 
@@ -113,7 +111,7 @@ body {
 }
 
 .table-container {
-  max-height: 498px; /* Adjust the height as needed */
+  max-height: 498px;
   overflow-y: auto;
   border-radius: 12px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
@@ -125,7 +123,8 @@ body {
   border-collapse: collapse;
 }
 
-.table__content th, .table__content td {
+.table__content th,
+.table__content td {
   padding: 12px 15px;
   text-align: left;
 }
@@ -172,18 +171,19 @@ body {
   margin-right: 5px;
 }
 
-.table__content button:last-child{
+.table__content button:last-child {
   background-color: red;
 }
 
 .table__content button:hover {
   background-color: #0056b3;
 }
-.table__content button:last-child:hover{
+.table__content button:last-child:hover {
   background-color: #cf0000;
 }
 
-.table__content input[type="text"], .table__content select {
+.table__content input[type="text"],
+.table__content select {
   padding: 8px 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -209,14 +209,15 @@ body {
   color: #333;
 }
 
-.table__content .modal-content input[type="text"], .table__content .modal-content select {
+.table__content .modal-content input[type="text"],
+.table__content .modal-content select {
   width: calc(100% - 20px);
   padding: 10px;
   margin-bottom: 15px;
 }
 
 .table__content .modal-content button {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   border: none;
   padding: 12px 20px;
@@ -234,7 +235,6 @@ body {
 }
 
 
-/* CSS cho modal */
 .modal {
   display: none;
   position: fixed;
@@ -243,7 +243,6 @@ body {
   top: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
-  /* height: 100%; */
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.5);
 }
@@ -253,8 +252,8 @@ body {
   margin: 15% auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 50%; /* Điều chỉnh độ rộng của modal form */
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  width: 50%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 .close {
@@ -271,10 +270,10 @@ body {
   cursor: pointer;
 }
 
-.modal-content input[type=text],
+.modal-content input[type="text"],
 .modal-content select,
 .modal-content button,
-.modal-content input[type=file] {
+.modal-content input[type="file"] {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -285,7 +284,7 @@ body {
 }
 
 .modal-content button {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   border: none;
   cursor: pointer;
@@ -295,12 +294,6 @@ body {
   background-color: #45a049;
 }
 
-/* Điều chỉnh độ rộng của input type="file" */
-.modal-content input[type=file] {
-  width: calc(100% - 20px); /* Để điều chỉnh phù hợp với nút chọn file */
-}
-
-/* Điều chỉnh style của select box */
 .modal-content select {
   width: 100%;
   padding: 10px;
@@ -309,20 +302,16 @@ body {
   border-radius: 4px;
   box-sizing: border-box;
   background-color: #f8f8f8;
-  /* Add more styles here if needed */
 }
 
-.footer{
+.footer {
   position: fixed;
   right: 0;
   bottom: 0;
   display: flex;
   justify-content: center;
   font-size: 1.4rem;
-  /* height: 100px;
-  /* width: 100%;
-  height: 100%; */
   background-color: #fff;
   padding: 14px 0px;
-
+  font-weight: 400;
 }
