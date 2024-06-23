@@ -217,7 +217,7 @@ body {
 }
 
 .table__content .modal-content button {
-  background-color: #4caf50;
+  background-color: #007bff;
   color: white;
   border: none;
   padding: 12px 20px;
@@ -231,7 +231,7 @@ body {
 }
 
 .table__content .modal-content button:hover {
-  background-color: #45a049;
+  background-color: #00458e;
 }
 
 
@@ -282,16 +282,20 @@ body {
   border-radius: 4px;
   box-sizing: border-box;
 }
+.modal-content input[type="text"]:focus, .modal-content input[type="file"]:focus, .modal-content select:focus{
+  border-color: #007bff;
+  outline-color:#007bff ;
+}
 
 .modal-content button {
-  background-color: #4caf50;
+  background-color: #007bff;
   color: white;
   border: none;
   cursor: pointer;
 }
 
 .modal-content button:hover {
-  background-color: #45a049;
+  background-color: #004fa2;
 }
 
 .modal-content select {
@@ -314,4 +318,9 @@ body {
   background-color: #fff;
   padding: 14px 0px;
   font-weight: 400;
+}
+
+input + span, select + span{
+  color: red;
+  font-size: 1rem;
 }

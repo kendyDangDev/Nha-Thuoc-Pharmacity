@@ -58,16 +58,18 @@
             placeholder="Tên danh mục"
             required
           />
+          <span id="errorName"></span>
           <input
             type="text"
             id="categoryDescription"
             placeholder="Mô tả"
             required
           />
+          <span id="errorDesc"></span>
           <button id="saveCategory">Lưu</button>
         </div>
       </div>
-   
+
       <!-- Modal for Product Form -->
       <div id="productModal" class="modal">
         <div class="modal-content">
@@ -79,14 +81,18 @@
             placeholder="Tên sản phẩm"
             required
           />
+          <span id="errorNameProduct"></span>
           <input type="text" id="productPrice" placeholder="Giá bán" required />
+          <span id="errorPriceProduct"></span>
           <input
             type="text"
             id="productBrand"
             placeholder="Thương hiệu"
             required
           />
+          <span id="errorBrand"></span>
           <select id="productCategory"></select>
+          <span id="errorCategory"></span>
           <input type="file" id="productImage" accept="image/*" />
           <img id="productImagePreview" src="" alt="Product Image" style="max-width: 100px; display: none; margin-top: 10px;"/>
           <button id="saveProduct">Lưu</button>
