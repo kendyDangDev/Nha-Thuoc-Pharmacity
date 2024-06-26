@@ -227,3 +227,8 @@ gap: 24px;
   background-color: #dedede;
   border-radius:8px ;
 }
+
+.sort__active{
+  border-color: #0070e0;
+  color: #0070e0;
+}

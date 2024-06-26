@@ -106,6 +106,31 @@
             </div>
           </div>
         </div>
+        <div class="modal" id="modal-Login">
+          <div class="modal-Login">
+            <div class="modal-header">
+              <h2>XIN CHÀO,</h2>
+              <span style="font-size: 3rem; cursor: pointer" id="closeModal"
+                >&times;</span
+              >
+            </div>
+            <p>Vui lòng nhập điện thoại để tiếp tục</p>
+            <h3>Số điện thoại</h3>
+            <input type="text" placeholder="Nhập số điện thoại" maxlength="10" />
+            <button id="continueActive" class="">Tiếp tục</button>
+            <span style="font-size: 1.6rem; text-align: center; color: #9e9e9e"
+              >Hoặc</span
+            >
+            <button class="google">
+              <img src="./assets/img/Head/google.png" alt="" width="20x" />
+              <span>Tiếp tục với Google</span>
+            </button>
+            <button class="facebook">
+              <img src="./assets/img/Head/facebook.png" alt="" width="20x" />
+              <span>Tiếp tục với Facebook</span>
+            </button>
+          </div>
+        </div>
         <!-- danh mục -->
         <div class="header__category grid-content">
           <div class="header-category__btn">
@@ -745,6 +770,39 @@
           categoryDisplay.style.opacity = 0;
           categoryDisplay.style.visibility = "hidden";
           arrow.style.transform = "rotate(0deg)";
+        }
+      });
+    </script>
+    <script>
+      var btnLogin = document.querySelector(".header__Sign__btn");
+      var modalLogin = document.getElementById("modal-Login");
+      btnLogin.addEventListener("click", () => {
+        modalLogin.style.display = "block";
+      });
+
+      var closeModal = document.getElementById("closeModal");
+      closeModal.addEventListener("click", () => {
+        modalLogin.style.display = "none";
+      });
+
+      var phoneNumber = document.querySelector(".modal-Login input");
+      var continueActive = document.getElementById("continueActive");
+
+      phoneNumber.addEventListener("input", () => {
+        const phoneValue = phoneNumber.value;
+        if (!isNaN(phoneValue)) {
+          phoneNumber.value = phoneValue;
+        } else {
+          phoneNumber.value = phoneValue.slice(0, -1);
+        }
+
+        if (phoneValue.length === 10) {
+          continueActive.classList.add("btn_active");
+          continueActive.addEventListener("click", () => {
+            modalLogin.style.display = "none";
+          });
+        } else {
+          continueActive.classList.remove("btn_active");
         }
       });
     </script>
