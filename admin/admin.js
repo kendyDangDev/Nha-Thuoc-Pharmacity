@@ -1,4 +1,3 @@
-// document.addEventListener("DOMContentLoaded", function () {
 var content = document.querySelector(".content");
 const btnCategory = document.getElementById("btn__category");
 const btnProduct = document.getElementById("btn__product");
@@ -103,14 +102,13 @@ btnProduct.addEventListener("click", () => {
     populateCategoryOptions(); //load danh mục
     document.getElementById("productImagePreview").style.display = "none"; // Ẩn preview ảnh khi thêm mới
     productModal.style.display = "block";
-    // isEditing = false;
-    // editingIndex = null;
+
     document.getElementById("productName").value = "";
     document.getElementById("errorNameProduct").textContent = "";
     document.getElementById("productPrice").value = "";
     document.getElementById("errorPriceProduct").textContent = "";
     document.getElementById("productBrand").value = "";
-    document.getElementById("productBrand").textContent = "";
+    document.getElementById("errorBrand").textContent = "";
     document.getElementById("productCategory").value = "";
     document.getElementById("errorCategory").textContent = "";
     document.getElementById("productImage").value = "";
@@ -280,11 +278,14 @@ function validateProduct(
     errorMessage = "Vui lòng chọn danh mục!";
     document.getElementById("errorCategory").textContent = errorMessage;
   } else {
-    document.getElementById("errorCategory").textContent = "gdvdfv";
+    document.getElementById("errorCategory").textContent = "";
   }
 
   if (errorMessage !== "") {
     return false;
+  }
+  else{
+    return true;
   }
 }
 function saveProduct() {
@@ -343,6 +344,8 @@ function saveProduct() {
       localStorage.setItem("products", JSON.stringify(products));
       renderProducts();
       productModal.style.display = "none";
+
+      console.log("dsds")
     }
   }
 
@@ -488,4 +491,3 @@ function renderFilteredProducts(filteredProducts) {
     productTableBody.appendChild(tr);
   });
 }
-// });

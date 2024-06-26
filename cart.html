@@ -274,281 +274,289 @@
       </div>
     </header>
     <!-- Giỏ hàng -->
-    <div class="cart__container grid-full">
-      <div class="cart-content grid-content">
-        <div class="cart--left__info">
-          <div class="cart__header">
-            <h2>Giỏ hàng (13)</h2>
-            <button>Xóa</button>
-          </div>
-          <div class="cart__ship grid-content">
-            <i class="fa-solid fa-truck-fast"></i>
-            <span>Miễn phí vận chuyển cho mọi đơn hàng đến hết tháng 6</span>
-          </div>
-
-          <div class="cart__product-list grid-content">
-            <div class="cart__product-list__header">
-              <input
-                type="checkbox"
-                name="sptotal"
-                id="sptotal"
-                checked
-                class="checkbox-btn"
-              />
-              <div class="title-column">
-                <p>Sản phẩm</p>
-                <p class="sp">Đơn giá</p>
-                <p>Số lượng</p>
-                <p>Thành tiền</p>
-              </div>
-              <!-- <i class="fa-regular fa-trash-can"></i> -->
+    <main>
+      <div class="cart__container grid-full">
+        <div class="cart-content grid-content">
+          <div class="cart--left__info">
+            <div class="cart__header">
+              <h2>Giỏ hàng (13)</h2>
+              <button>Xóa</button>
             </div>
-            <!-- item1 -->
-            <div class="break--product"></div>
+            <div class="cart__ship grid-content">
+              <i class="fa-solid fa-truck-fast"></i>
+              <span>Miễn phí vận chuyển cho mọi đơn hàng đến hết tháng 6</span>
+            </div>
+
+            <div class="cart__product-list grid-content">
+              <div class="cart__product-list__header">
+                <input
+                  type="checkbox"
+                  name="sptotal"
+                  id="sptotal"
+                  checked
+                  class="checkbox-btn"
+                />
+                <div class="title-column">
+                  <p>Sản phẩm</p>
+                  <p class="sp">Đơn giá</p>
+                  <p>Số lượng</p>
+                  <p>Thành tiền</p>
+                </div>
+                <!-- <i class="fa-regular fa-trash-can"></i> -->
+              </div>
+              <!-- item1 -->
+              <div class="break--product"></div>
+              <div class="cart__product-item">
+                <input
+                  type="checkbox"
+                  name="sp"
+                  id="sp"
+                  checked
+                  class="checkbox-btn flex-align"
+                />
+                <div class="cart__product-item__info__container">
+                  <img src="./assets/img/Cart/sp1.webp" alt="" width="66px" />
+                  <div class="item__info">
+                    <div class="item-info__desc">
+                      <h2>
+                        Khẩu trang y tế 3 lớp màu trắng Pharamcity bảo vệ khỏi
+                        vi khuẩng gây hại
+                      </h2>
+                      <span>Hộp</span>
+                      <div class="item__Khuyenmai">
+                        <div class="item__fast-ship">
+                          <div>Mua 1 tặng 1 (01-30/06)</div>
+                          <div>
+                            Giao nhanh 2H bởi Ahamove
+                            <i class="fa-solid fa-question"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="item-info__right">
+                      <div class="item__price">
+                        <!-- <del>390.000 đ</del> -->
+                        <span id="donGia" style="margin-left: 30px"
+                          >59.000 ₫</span
+                        >
+                      </div>
+                      <div class="item__quantity">
+                        <button class="btn__round" id="btn__reduce">
+                          <span>-</span>
+                        </button>
+                        <span id="currentQuantity">1</span>
+                        <button class="btn__round" id="btn__increase">
+                          <span>+</span>
+                        </button>
+                      </div>
+                      <div class="item__total-price">
+                        <span id="total-price">59.000₫</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <i class="fa-regular fa-trash-can"></i>
+              </div>
+              <!-- item2 -->
+              <div class="break--product"></div>
+              <div class="cart__product-item">
+                <input
+                  type="checkbox"
+                  name="sp"
+                  id="sp"
+                  checked
+                  class="checkbox-btn flex-align"
+                />
+                <div class="cart__product-item__info__container">
+                  <img src="./assets/img/Cart/sp2.webp" alt="" width="66px" />
+                  <div class="item__info">
+                    <div class="item-info__desc">
+                      <h2>
+                        Viên uống Kolmar Condition B Complex Bổ sung năng lượng
+                        cho cơ thể (Hộp 90 viên)
+                      </h2>
+                      <span>Hộp</span>
+                      <div class="item__Khuyenmai">
+                        <div class="item__fast-ship">
+                          <!-- <div>Mua 1 tặng 1 (01-30/06)</div> -->
+                          <div>
+                            Giao nhanh 2H bởi Ahamove
+                            <i class="fa-solid fa-question"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="item-info__right">
+                      <div class="item__price">
+                        <del>390.000 đ</del>
+                        <span>331.500 ₫</span>
+                      </div>
+                      <div class="item__quantity">
+                        <button class="btn__round"><span>-</span></button>
+                        <span>2</span>
+                        <button class="btn__round"><span>+</span></button>
+                      </div>
+                      <div class="item__total-price">
+                        <span>663.000₫</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <i class="fa-regular fa-trash-can"></i>
+              </div>
+              <!-- item3 -->
+              <div class="break--product"></div>
+              <div class="cart__product-item">
+                <input
+                  type="checkbox"
+                  name="sp"
+                  id="sp"
+                  checked
+                  class="checkbox-btn flex-align"
+                />
+                <div class="cart__product-item__info__container">
+                  <img src="./assets/img/Cart/sp3.jpg" alt="" width="66px" />
+                  <div class="item__info">
+                    <div class="item-info__desc">
+                      <h2>
+                        Dung dịch vệ sinh mũi cho trẻ Nose Hygiene Spray Baby Bổ
+                        sung năng lượng cho cơ thể (Hộp 90 viên)
+                      </h2>
+                      <span>Hộp</span>
+                      <div class="item__Khuyenmai">
+                        <div class="item__fast-ship">
+                          <!-- <div>Mua 1 tặng 1 (01-30/06)</div> -->
+                          <div>
+                            Giao nhanh 2H bởi Ahamove
+                            <i class="fa-solid fa-question"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="item-info__right">
+                      <div class="item__price">
+                        <!-- <del>95.000 đ</del> -->
+                        <span style="margin-left: 30px">95.500 ₫</span>
+                      </div>
+                      <div class="item__quantity">
+                        <button class="btn__round"><span>-</span></button>
+                        <span>9</span>
+                        <button class="btn__round"><span>+</span></button>
+                      </div>
+                      <div class="item__total-price">
+                        <span>885.000</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <i class="fa-regular fa-trash-can"></i>
+              </div>
+              <!-- item4 -->
+              <div class="break--product"></div>
+              <div class="cart__product-item">
+                <input
+                  type="checkbox"
+                  name="sp"
+                  id="sp"
+                  checked
+                  class="checkbox-btn flex-align"
+                />
+                <div class="cart__product-item__info__container">
+                  <img src="./assets/img/Cart/sp4.webp" alt="" width="66px" />
+                  <div class="item__info">
+                    <div class="item-info__desc">
+                      <h2>
+                        Viên sủi Kudos Extra High Dose Vitamins & Minerals bổ
+                        sung Bổ sung năng lượng cho cơ thể (Hộp 90 viên)
+                      </h2>
+                      <span>Tuýp</span>
+                      <div class="item__Khuyenmai">
+                        <div class="item__fast-ship">
+                          <!-- <div>Mua 1 tặng 1 (01-30/06)</div> -->
+                          <div>
+                            Giao nhanh 2H bởi Ahamove
+                            <i class="fa-solid fa-question"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="item-info__right">
+                      <div class="item__price">
+                        <del>157.000 đ</del>
+                        <span>125.600 ₫</span>
+                      </div>
+                      <div class="item__quantity">
+                        <button class="btn__round"><span>-</span></button>
+                        <span>1</span>
+                        <button class="btn__round"><span>+</span></button>
+                      </div>
+                      <div class="item__total-price">
+                        <span>125.600 ₫</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <i class="fa-regular fa-trash-can"></i>
+              </div>
+            </div>
+          </div>
+          <div class="cart--right-total">
+            <div class="cart--right__khuyen-mai">
+              <div class="cart--right__km">
+                <i class="fa-solid fa-ticket"></i>
+                <span> Khuyến mãi</span>
+              </div>
+              <span class="cart--right__select-voucher">Chọn mã</span>
+            </div>
+            <div class="cart--right__total-price">
+              <div class="cart--right-tam-tinh">
+                <h3>Tạm tính</h3>
+                <p>1.851.000 ₫</p>
+              </div>
+              <div class="cart--right-uu-dai">
+                <h3>Giảm giá ưu đãi</h3>
+                <p>-</p>
+              </div>
+              <div class="cart--right-san-pham">
+                <h3>Giảm giá sản phẩm</h3>
+                <p>-148.000 ₫</p>
+              </div>
+              <div class="break--product" style="height: 0.6px"></div>
+              <div class="tong-tien">
+                <p>Tổng tiền</p>
+                <h3>1.702.600 ₫</h3>
+              </div>
+              <div class="btn__buy-product">
+                <a href="./payment.html">Mua hàng (4)</a>
+              </div>
+            </div>
+          </div>
+          <div class="product__gift">
+            <h3>Quà tặng</h3>
             <div class="cart__product-item">
-              <input
-                type="checkbox"
-                name="sp"
-                id="sp"
-                checked
-                class="checkbox-btn flex-align"
-              />
+              <div></div>
               <div class="cart__product-item__info__container">
                 <img src="./assets/img/Cart/sp1.webp" alt="" width="66px" />
                 <div class="item__info">
-                  <div class="item-info__desc">
+                  <div class="item-info__desc item-info__desc-full">
                     <h2>
-                      Khẩu trang y tế 3 lớp màu trắng Pharamcity bảo vệ khỏi vi
-                      khuẩng gây hại
+                      Khẩu trang y tế 3 lớp màu trắn Pharmacity bảo vệ khỏi vi
+                      khuẩn, khói và bụi mịn (50 cái/hộp)
                     </h2>
                     <span>Hộp</span>
-                    <div class="item__Khuyenmai">
-                      <div class="item__fast-ship">
-                        <div>Mua 1 tặng 1 (01-30/06)</div>
-                        <div>
-                          Giao nhanh 2H bởi Ahamove
-                          <i class="fa-solid fa-question"></i>
-                        </div>
-                      </div>
-                    </div>
                   </div>
 
                   <div class="item-info__right">
-                    <div class="item__price">
-                      <!-- <del>390.000 đ</del> -->
-                      <span style="margin-left: 30px">59.000 ₫</span>
-                    </div>
                     <div class="item__quantity">
-                      <button class="btn__round"><span>-</span></button>
-                      <span>1</span>
-                      <button class="btn__round"><span>+</span></button>
+                      <span style="margin-left: 60px">x1</span>
                     </div>
                     <div class="item__total-price">
-                      <span>59.000₫</span>
+                      <span style="margin-left: 100px">0₫</span>
                     </div>
-                  </div>
-                </div>
-              </div>
-              <i class="fa-regular fa-trash-can"></i>
-            </div>
-            <!-- item2 -->
-            <div class="break--product"></div>
-            <div class="cart__product-item">
-              <input
-                type="checkbox"
-                name="sp"
-                id="sp"
-                checked
-                class="checkbox-btn flex-align"
-              />
-              <div class="cart__product-item__info__container">
-                <img src="./assets/img/Cart/sp2.webp" alt="" width="66px" />
-                <div class="item__info">
-                  <div class="item-info__desc">
-                    <h2>
-                      Viên uống Kolmar Condition B Complex Bổ sung năng lượng
-                      cho cơ thể (Hộp 90 viên)
-                    </h2>
-                    <span>Hộp</span>
-                    <div class="item__Khuyenmai">
-                      <div class="item__fast-ship">
-                        <!-- <div>Mua 1 tặng 1 (01-30/06)</div> -->
-                        <div>
-                          Giao nhanh 2H bởi Ahamove
-                          <i class="fa-solid fa-question"></i>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="item-info__right">
-                    <div class="item__price">
-                      <del>390.000 đ</del>
-                      <span>331.500 ₫</span>
-                    </div>
-                    <div class="item__quantity">
-                      <button class="btn__round"><span>-</span></button>
-                      <span>2</span>
-                      <button class="btn__round"><span>+</span></button>
-                    </div>
-                    <div class="item__total-price">
-                      <span>663.000₫</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <i class="fa-regular fa-trash-can"></i>
-            </div>
-            <!-- item3 -->
-            <div class="break--product"></div>
-            <div class="cart__product-item">
-              <input
-                type="checkbox"
-                name="sp"
-                id="sp"
-                checked
-                class="checkbox-btn flex-align"
-              />
-              <div class="cart__product-item__info__container">
-                <img src="./assets/img/Cart/sp3.jpg" alt="" width="66px" />
-                <div class="item__info">
-                  <div class="item-info__desc">
-                    <h2>
-                      Dung dịch vệ sinh mũi cho trẻ Nose Hygiene Spray Baby Bổ
-                      sung năng lượng cho cơ thể (Hộp 90 viên)
-                    </h2>
-                    <span>Hộp</span>
-                    <div class="item__Khuyenmai">
-                      <div class="item__fast-ship">
-                        <!-- <div>Mua 1 tặng 1 (01-30/06)</div> -->
-                        <div>
-                          Giao nhanh 2H bởi Ahamove
-                          <i class="fa-solid fa-question"></i>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="item-info__right">
-                    <div class="item__price">
-                      <!-- <del>95.000 đ</del> -->
-                      <span style="margin-left: 30px">95.500 ₫</span>
-                    </div>
-                    <div class="item__quantity">
-                      <button class="btn__round"><span>-</span></button>
-                      <span>9</span>
-                      <button class="btn__round"><span>+</span></button>
-                    </div>
-                    <div class="item__total-price">
-                      <span>885.000</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <i class="fa-regular fa-trash-can"></i>
-            </div>
-            <!-- item4 -->
-            <div class="break--product"></div>
-            <div class="cart__product-item">
-              <input
-                type="checkbox"
-                name="sp"
-                id="sp"
-                checked
-                class="checkbox-btn flex-align"
-              />
-              <div class="cart__product-item__info__container">
-                <img src="./assets/img/Cart/sp4.webp" alt="" width="66px" />
-                <div class="item__info">
-                  <div class="item-info__desc">
-                    <h2>
-                      Viên sủi Kudos Extra High Dose Vitamins & Minerals bổ sung
-                      Bổ sung năng lượng cho cơ thể (Hộp 90 viên)
-                    </h2>
-                    <span>Tuýp</span>
-                    <div class="item__Khuyenmai">
-                      <div class="item__fast-ship">
-                        <!-- <div>Mua 1 tặng 1 (01-30/06)</div> -->
-                        <div>
-                          Giao nhanh 2H bởi Ahamove
-                          <i class="fa-solid fa-question"></i>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="item-info__right">
-                    <div class="item__price">
-                      <del>157.000 đ</del>
-                      <span>125.600 ₫</span>
-                    </div>
-                    <div class="item__quantity">
-                      <button class="btn__round"><span>-</span></button>
-                      <span>1</span>
-                      <button class="btn__round"><span>+</span></button>
-                    </div>
-                    <div class="item__total-price">
-                      <span>125.600 ₫</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <i class="fa-regular fa-trash-can"></i>
-            </div>
-          </div>
-        </div>
-        <div class="cart--right-total">
-          <div class="cart--right__khuyen-mai">
-            <div class="cart--right__km">
-              <i class="fa-solid fa-ticket"></i>
-              <span> Khuyến mãi</span>
-            </div>
-            <span class="cart--right__select-voucher">Chọn mã</span>
-          </div>
-          <div class="cart--right__total-price">
-            <div class="cart--right-tam-tinh">
-              <h3>Tạm tính</h3>
-              <p>1.851.000 ₫</p>
-            </div>
-            <div class="cart--right-uu-dai">
-              <h3>Giảm giá ưu đãi</h3>
-              <p>-</p>
-            </div>
-            <div class="cart--right-san-pham">
-              <h3>Giảm giá sản phẩm</h3>
-              <p>-148.000 ₫</p>
-            </div>
-            <div class="break--product" style="height: 0.6px"></div>
-            <div class="tong-tien">
-              <p>Tổng tiền</p>
-              <h3>1.702.600 ₫</h3>
-            </div>
-            <div class="btn__buy-product">
-              <a href="./payment.html">Mua hàng (4)</a>
-            </div>
-          </div>
-        </div>
-        <div class="product__gift">
-          <h3>Quà tặng</h3>
-          <div class="cart__product-item">
-            <div></div>
-            <div class="cart__product-item__info__container">
-              <img src="./assets/img/Cart/sp1.webp" alt="" width="66px" />
-              <div class="item__info">
-                <div class="item-info__desc item-info__desc-full">
-                  <h2>
-                    Khẩu trang y tế 3 lớp màu trắn Pharmacity bảo vệ khỏi vi
-                    khuẩn, khói và bụi mịn (50 cái/hộp)
-                  </h2>
-                  <span>Hộp</span>
-                </div>
-
-                <div class="item-info__right">
-                  <div class="item__quantity">
-                    <span style="margin-left: 60px">x1</span>
-                  </div>
-                  <div class="item__total-price">
-                    <span style="margin-left: 100px">0₫</span>
                   </div>
                 </div>
               </div>
@@ -556,7 +564,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </main>
     <div class="line-break line-break--blue"></div>
     <!-- footer -->
     <footer class="footer__container grid-full">
@@ -704,6 +712,41 @@
         </div>
       </div>
     </footer>
-    <script src="script.js"></script>
+    <!-- <script src="script.js"></script> -->
+    <script>
+      var btnIncreasee = document.getElementById("btn__increase");
+      var btnReduce = document.getElementById("btn__reduce");
+      var currentQuantity = document.getElementById("currentQuantity");
+      var newQuantity = parseInt(currentQuantity.textContent);
+
+      btnIncreasee.addEventListener("click", () => {
+        newQuantity++;
+        currentQuantity.textContent = newQuantity;
+      });
+
+      btnReduce.addEventListener("click", () => {
+        if (newQuantity > 0) {
+          newQuantity--;
+          currentQuantity.textContent = newQuantity;
+        }
+      });
+    </script>
+    <script>
+      var btnCategory = document.querySelector(".header-category__btn");
+      var categoryDisplay = document.querySelector(".category__main-container");
+      var arrow = document.querySelector(".rotate_ar");
+
+      btnCategory.addEventListener("click", function () {
+        if (categoryDisplay.style.opacity == 0) {
+          categoryDisplay.style.opacity = 1;
+          categoryDisplay.style.visibility = "visible";
+          arrow.style.transform = "rotate(180deg)";
+        } else {
+          categoryDisplay.style.opacity = 0;
+          categoryDisplay.style.visibility = "hidden";
+          arrow.style.transform = "rotate(0deg)";
+        }
+      });
+    </script>
   </body>
 </html>

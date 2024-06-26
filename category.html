@@ -409,8 +409,8 @@
           <div class="category__sort col-10">
             <div class="category__sort-header">
               <h3>Sắp xếp theo:</h3>
-              <button class="btn__sort">Giá giảm dần</button>
-              <button class="btn__sort">Giá tăng dần</button>
+              <button class="btn__sort" id="sort_Asc">Giá giảm dần</button>
+              <button class="btn__sort" id="sort__Desc">Giá tăng dần</button>
             </div>
             <!-- danh sách sản phẩm -->
             <div class="category__sort__product-all">
@@ -790,6 +790,7 @@
                   </div>
                 </div>
               </section>
+
               <section class="deals-super__product deal__product">
                 <div class="product-img-container">
                   <div class="product-img">
@@ -1336,6 +1337,24 @@
         </div>
       </div>
     </footer>
-    <script src="script.js"></script>
+    <!-- <script src="script.js"></script> -->
+    <script src="category.js"></script>
+    <script>
+      var btnCategory = document.querySelector(".header-category__btn");
+      var categoryDisplay = document.querySelector(".category__main-container");
+      var arrow = document.querySelector(".rotate_ar");
+
+      btnCategory.addEventListener("click", function () {
+        if (categoryDisplay.style.opacity == 0) {
+          categoryDisplay.style.opacity = 1;
+          categoryDisplay.style.visibility = "visible";
+          arrow.style.transform = "rotate(180deg)";
+        } else {
+          categoryDisplay.style.opacity = 0;
+          categoryDisplay.style.visibility = "hidden";
+          arrow.style.transform = "rotate(0deg)";
+        }
+      });
+    </script>
   </body>
 </html>

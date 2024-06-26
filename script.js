@@ -1,24 +1,8 @@
-// const listImages = document.querySelector("list-img");
-// const images = document.getElementsByTagName("img");
-// const length = images.length;
-// console.log(listImages);
-// let current = 0;
-// setInterval(() => {
-//   if (current == length-1) {
-//     current = 0;
-//     let width = images[0].offsetWidth;
-//     listImages.style.transform = "translateX(0px)";
-//   } else {
-//     current++;
-//     let width = images[0].offsetWidth;
-//     listImages.style.transform = "translateX(${width * -1 * current}px)";
-//   }
-// }, 1000);
-var btnCategory = document.querySelector('.header-category__btn');
-var categoryDisplay = document.querySelector(".category__main-container")
-var arrow = document.querySelector(".rotate_ar")
+var btnCategory = document.querySelector(".header-category__btn");
+var categoryDisplay = document.querySelector(".category__main-container");
+var arrow = document.querySelector(".rotate_ar");
 
-btnCategory.addEventListener('click', function() {
+btnCategory.addEventListener("click", function () {
   if (categoryDisplay.style.opacity == 0) {
     categoryDisplay.style.opacity = 1;
     categoryDisplay.style.visibility = "visible";
@@ -29,7 +13,6 @@ btnCategory.addEventListener('click', function() {
     arrow.style.transform = "rotate(0deg)";
   }
 });
-
 
 var carousel = document.querySelector(".list-img");
 var listimg = document.querySelectorAll(".list-img img");
@@ -57,6 +40,39 @@ function slideShow(index, carousel) {
   carousel.style.transform = `translateX(-${width * index}px)`;
   return index;
 }
+
+
+var btnLogin = document.querySelector(".header__Sign__btn");
+var modalLogin = document.getElementById("modal-Login");
+btnLogin.addEventListener("click", () => {
+  modalLogin.style.display = "block";
+});
+
+var closeModal = document.getElementById("closeModal");
+closeModal.addEventListener("click", () => {
+  modalLogin.style.display = "none";
+});
+
+var phoneNumber = document.querySelector(".modal-Login input");
+var continueActive = document.getElementById("continueActive");
+
+phoneNumber.addEventListener("input", () => {
+  const phoneValue = phoneNumber.value;
+  if (!isNaN(phoneValue)) {
+    phoneNumber.value = phoneValue;
+  } else {
+    phoneNumber.value = phoneValue.slice(0, -1);
+  }
+
+  if (phoneValue.length === 10) {
+    continueActive.classList.add("btn_active");
+    continueActive.addEventListener("click", () => {
+      modalLogin.style.display = "none";
+    });
+  } else {
+    continueActive.classList.remove("btn_active");
+  }
+});
 
 var minutes = document.querySelector(".minute");
 var second = document.querySelector(".second");
